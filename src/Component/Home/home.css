@@ -1,0 +1,148 @@
+.loading {
+  margin-top: 6rem;
+  text-align: center;
+}
+
+.today-container {
+  width: 100vw;
+  margin: 0 auto;
+  padding: 0.25rem;
+  position: relative;
+}
+
+.topic {
+  color: var(--clr-gold);
+  margin: 0 auto;
+  background: var(--main-primary-color-13);
+  width: fit-content;
+  padding: 0.25rem 1rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.country {
+  display: flex;
+}
+
+.country-img-wrapper {
+  width: 30px;
+  height: 25px;
+}
+
+.country-img-wrapper img {
+  object-fit: cover;
+}
+
+.country h3 {
+  margin-left: 0.75rem;
+}
+
+.country p {
+  margin-left: 0.75rem;
+}
+
+.single-match {
+  display: flex;
+  align-items: center;
+  background-color: var(--main-primary-color-1);
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-radius: 20px;
+  box-shadow: var(--light-shadow);
+}
+
+.live {
+  color: hsl(40, 67%, 57%);
+}
+
+.not-live {
+  color: var(--main-primary-color-6);
+}
+
+.teams {
+  margin-left: 2rem;
+}
+
+.teams-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.teams-wrapper h4 {
+  margin-left: 0.75rem;
+  color: var(--main-primary-color-6);
+}
+
+.teams-wrapper h3 {
+  margin-left: 2rem;
+  color: var(--main-primary-color-6);
+}
+
+.home-team-img-box {
+  width: 25px;
+  height: 25px;
+}
+
+.home-team-img-box img {
+  object-fit: contain;
+}
+
+.vs {
+  visibility: hidden;
+}
+
+.back-to-top {
+  position: fixed;
+  top: 40%;
+  z-index: 5;
+  right: 0;
+  display: none;
+  font-size: 2rem;
+  transition: var(--transition);
+  box-shadow: 0px 0px 2px 2px rgba(255, 255, 255, 0.281);
+}
+
+.show-arrow {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .today-container {
+    width: 90vw;
+    /* padding: 1rem; */
+    margin: 1rem auto;
+  }
+
+  .single-match {
+    padding: 1rem;
+  }
+
+  .teams {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+  }
+
+  .away-team {
+    margin-left: 1.5rem;
+  }
+
+  .away-team .home-team-img-box {
+    order: 2;
+    margin-left: 1.5rem;
+  }
+
+  .away-team h4 {
+    order: 3;
+  }
+
+  .away-team h3 {
+    order: 1;
+  }
+
+  .vs {
+    margin-right: 1.5rem;
+    font-size: 1.25rem;
+    visibility: visible;
+  }
+}
