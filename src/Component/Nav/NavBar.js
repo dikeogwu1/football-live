@@ -100,7 +100,7 @@ const NavBar = () => {
           <form onSubmit={handleSub}>
             <input
               type='text'
-              placeholder='City vs Liv '
+              placeholder='E.g England, Spain, etc '
               className='search-input'
               ref={inputContainer}
             />

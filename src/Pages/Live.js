@@ -1,9 +1,12 @@
 import React from 'react'
+import LIveMatch from '../Component/Live/LIveMatch'
+import NavBar from '../Component/Nav/NavBar'
 
 const Live = () => {
   return (
     <div>
-      <h1>hello from Live page</h1>
+      <NavBar />
+      <LIveMatch />
     </div>
   )
 }

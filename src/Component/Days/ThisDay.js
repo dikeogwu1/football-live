@@ -45,16 +45,22 @@ const ThisDay = () => {
     }
   }
 
+  const checkScroll = () => {
+    if (window.scrollY > 3000) {
+      setArrow(true)
+    }
+    if (window.scrollY < 4000) {
+      setArrow(false)
+    }
+  }
+
   useEffect(() => {
     getToday()
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 3000) {
-        setArrow(true)
-      }
-      if (window.scrollY < 4000) {
-        setArrow(false)
-      }
-    })
+    window.addEventListener('scroll', checkScroll)
+
+    return () => {
+      window.removeEventListener('scroll', checkScroll)
+    }
   }, [id, search])
 
   useEffect(() => {

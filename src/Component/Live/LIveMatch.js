@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaArrowUp } from 'react-icons/all'
-// home css
-import './home.css'
 import axios from 'axios'
 // import global store
 import { useGlobalContext } from '../Store/Context'
 
-const Home = () => {
+const LIveMatch = () => {
   const [match, setMatch] = useState([])
   const [arrow, setArrow] = useState(false)
   const { search, setSearch } = useGlobalContext()
@@ -17,7 +15,7 @@ const Home = () => {
       const items = await axios({
         method: 'GET',
         url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
-        params: { date: '2021-11-25' },
+        params: { live: 'all' },
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
@@ -62,26 +60,20 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
-    let scores = setInterval(getToday, 45000)
+    let calls = setInterval(getToday, 50000)
     return () => {
-      clearInterval(scores)
+      clearInterval(calls)
     }
   }, [search])
-
-  if (search && match.length < 1) {
-    return (
-      <section>
-        <h3 className='topic'>today</h3>
-        <h1 className='loading'>we could not fined any match</h1>
-      </section>
-    )
-  }
 
   if (match.length < 1) {
     return (
       <section>
-        <h3 className='topic'>today</h3>
-        <h1 className='loading'>loading...</h1>
+        <h3 className='topic'>live match</h3>
+        <h2 className='loading'>loading...</h2>
+        <p className='loading'>
+          please wait or reload after 30 seconds of waiting
+        </p>
       </section>
     )
   }
@@ -89,7 +81,7 @@ const Home = () => {
   return (
     <div className='today-container'>
       <section className='todays-wrapper'>
-        <h3 className='topic'>today</h3>
+        <h3 className='topic'>live match</h3>
         <article className='match-box'>
           {match.map((single) => {
             let active = 'live'
@@ -97,24 +89,14 @@ const Home = () => {
               single.fixture.status.short === 'FT' ||
               single.fixture.status.short === 'PST' ||
               single.fixture.status.short === 'TBD' ||
-              single.fixture.status.short === 'AET' ||
               single.fixture.status.long === 'Not Started' ||
               single.fixture.status.short === 'CANC'
             ) {
               active = 'not-live'
             }
 
-            if (single.fixture.status.short === 'NS') {
-              single.fixture.status.short = `${new Date(
-                single.fixture.date
-              ).getHours()}:${new Date(single.fixture.date).getMinutes()} `
-            }
-
-            if (
-              single.fixture.status.short === '1H' ||
-              single.fixture.status.short === '2H'
-            ) {
-              single.fixture.status.short = single.fixture.status.elapsed
+            if (single.fixture.status.short === 'HT') {
+              single.fixture.status.elapsed = single.fixture.status.short
             }
             const { fixture, goals, league, teams } = single
             return (
@@ -131,7 +113,7 @@ const Home = () => {
                 </section>
                 {/* each match */}
                 <Link to={`/info/${fixture.id}`} className='single-match'>
-                  <h5 className={`${active}`}>{fixture.status.short}</h5>
+                  <h5 className={`${active}`}>{fixture.status.elapsed}</h5>
                   <div className='teams'>
                     {/* home teams */}
                     <div className='teams-wrapper'>
@@ -172,4 +154,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default LIveMatch
