@@ -33,7 +33,7 @@ const ThisDay = () => {
       } else if (items.data.response.length > 0 && search) {
         setLoading(false)
         const clear = items.data.response.filter((all) => {
-          return all.league.country === search
+          return all.league.country === search || all.league.name === search
         })
         setMatch(clear)
       } else {

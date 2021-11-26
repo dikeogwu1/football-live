@@ -1,9 +1,10 @@
 import React from 'react'
+import MatchInfo from '../Component/Info/MatchInfo'
 
 const Info = () => {
   return (
     <div>
-      <h1>hello from info page</h1>
+      <MatchInfo />
     </div>
   )
 }

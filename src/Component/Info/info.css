@@ -1,0 +1,202 @@
+.info-container {
+  background-image: url('https://res.cloudinary.com/dikeogwu1/image/upload/v1637623499/football/green-field-in-american-football-stadium-ready-for-game-in-the-picture-id1245928482_rhfgdx.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100vw;
+  height: auto;
+  position: relative;
+}
+
+.info-container::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.096);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.info-nav {
+  margin-top: 0;
+  padding-bottom: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.info-logo-wrapper {
+  width: 28px;
+  height: 28px;
+}
+
+.info-brand {
+  font-size: 1.5rem;
+}
+
+.info-link {
+  font-size: 1.5rem;
+  color: hsl(41, 67%, 57%);
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  transition: var(--transition);
+}
+
+.info-link:hover {
+  color: var(--main-primary-color-11);
+}
+
+.info-item-wrapper {
+  margin: 2rem auto;
+  width: 98%;
+  position: relative;
+  z-index: 2;
+}
+
+/* first info */
+.info-item-parent {
+  width: 100%;
+}
+
+.first-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-team-box {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-team-logo {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 0.5rem;
+}
+.info-team-logo img {
+  object-fit: cover;
+}
+
+.score-info {
+  color: var(--main-primary-color-9);
+  text-shadow: 0px 2px 2px #fff;
+  overflow: hidden;
+}
+
+/* second info */
+
+.info-event-wrapper {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.real-event-time {
+  margin-right: 1.5rem;
+}
+
+.real-event {
+  width: fit-content;
+}
+
+.second-info {
+  width: 100%;
+}
+
+.goal {
+  display: flex;
+}
+
+.goal-scorer {
+  margin-left: 0.5rem;
+}
+
+.goal-scorer h4 {
+  margin-bottom: 0.25rem;
+}
+
+.goal-scorer p {
+  color: var(--main-primary-color-17);
+  margin-bottom: 0;
+}
+
+.goal-ball-img-wrapper {
+  width: 15px;
+  height: 15px;
+  margin-right: 1rem;
+}
+
+.goal-ball-img-wrapper img {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card {
+  display: flex;
+}
+
+.card h4 {
+  margin-left: 0.5rem;
+}
+
+.yellow-card {
+  width: 20px;
+  height: 25px;
+  background: #fff000;
+}
+
+.red-card {
+  width: 20px;
+  height: 25px;
+  background: #e13;
+}
+
+.missed-pen-box {
+  display: flex;
+}
+
+.missed-pen {
+  position: relative;
+}
+
+.missed-pen-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #e13;
+}
+
+.missed-pen-name {
+  margin-left: 0.5rem;
+}
+
+.right {
+  margin: 0 0 0 auto;
+}
+
+.right-side {
+  order: 2;
+  margin-left: 1rem;
+}
+
+.underline {
+  height: 2px;
+  width: 100%;
+  background: var(--main-primary-color-5);
+}
+
+@media screen and (min-width: 768px) {
+  .info-item-wrapper {
+    margin: 2rem 8rem;
+  }
+
+  .info-nav {
+    width: 82%;
+  }
+
+  .info-item-wrapper {
+    width: 80%;
+  }
+}

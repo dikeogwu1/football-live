@@ -17,7 +17,11 @@ const Home = () => {
       const items = await axios({
         method: 'GET',
         url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
-        params: { date: '2021-11-25' },
+        params: {
+          date: `${new Date().getFullYear()}-${
+            new Date().getMonth() + 1
+          }-${new Date().getDate()}`,
+        },
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
@@ -29,7 +33,7 @@ const Home = () => {
         setMatch(items.data.response)
       } else if (items.data.response.length > 0 && search) {
         const fill = items.data.response.filter((all) => {
-          return all.league.country === search
+          return all.league.country === search || all.league.name === search
         })
         setMatch(fill)
       } else {
