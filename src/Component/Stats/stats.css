@@ -1,0 +1,42 @@
+.stats-container {
+  background-image: url('https://res.cloudinary.com/dikeogwu1/image/upload/v1637932724/football/photo-1508098682722-e99c43a406b2_yghare.jpg');
+}
+
+.stats-sec {
+  padding: 2rem 0;
+}
+
+.stats-items-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stats-info {
+  width: 40%;
+}
+
+.stats-value {
+  color: var(--main-primary-color-11);
+}
+
+.stats-desc {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stats-desc h4 {
+  width: fit-content;
+}
+
+.stats-tittle {
+  color: #bd0;
+}
+
+.value-away-1 {
+  order: 2;
+  color: #bd0;
+}
+
+.value-away {
+  order: 1;
+}

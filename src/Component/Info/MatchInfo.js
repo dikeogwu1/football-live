@@ -36,11 +36,50 @@ const MatchInfo = () => {
   }, [])
 
   useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [match])
+
+  useEffect(() => {
     let scores = setInterval(getToday, 45000)
     return () => {
       clearInterval(scores)
     }
   }, [])
+
+  if (match.length < 1) {
+    return (
+      <main className='info-container'>
+        <div className='nav-container info-nav'>
+          <section className='logo-box'>
+            <Link to='/' className='info-link'>
+              <FaChevronLeft />
+            </Link>
+            <Link to='/live' className='info-link'>
+              Live
+            </Link>
+            <div className='logo-img-wrapper info-logo-wrapper'>
+              <img
+                src='https://res.cloudinary.com/dikeogwu1/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1637623388/football/photo-1589467785902-054ed88148d8_g50zpi.jpg'
+                alt='ball'
+              />
+            </div>
+            <Link to={`/stats/${id}`} className='info-link'>
+              stats
+            </Link>
+            <Link to='/'>
+              <h3 className='logo-tittle'>
+                <span className='l-football info-brand'>football</span>
+                <span className='l-live info-brand'>Live</span>
+              </h3>
+            </Link>
+          </section>
+        </div>
+        <section>
+          <h2 className='loading'>checking for info...</h2>
+        </section>
+      </main>
+    )
+  }
 
   return (
     <main className='info-container'>
@@ -58,7 +97,7 @@ const MatchInfo = () => {
               alt='ball'
             />
           </div>
-          <Link to='/stats/12' className='info-link'>
+          <Link to={`/stats/${id}`} className='info-link'>
             stats
           </Link>
           <Link to='/'>
@@ -84,13 +123,6 @@ const MatchInfo = () => {
               active = 'not-live'
             }
 
-            if (
-              single.fixture.status.short === '1H' ||
-              single.fixture.status.short === '2H'
-            ) {
-              single.fixture.status.short = single.fixture.status.elapsed
-            }
-
             const { goals, score, teams, fixture, events } = single
             return (
               <div className='info-item-parent' key={index}>
@@ -104,13 +136,28 @@ const MatchInfo = () => {
                     <h4>{teams.home.name}</h4>
                   </div>
                   {/* scores */}
-                  <div className='info-team-box'>
-                    <h2 className='score-info'>
-                      <span>{goals.home} </span>
-                      <span>-</span> <span>{goals.away}</span>
-                    </h2>
-                    <h3 className={`${active}`}>{fixture.status.short}</h3>
-                  </div>
+                  {fixture.status.short === '1H' ||
+                  fixture.status.short === '2H' ||
+                  fixture.status.short === 'FT' ? (
+                    <div className='info-team-box'>
+                      <h2 className='score-info'>
+                        <span>{goals.home} </span>
+                        <span>-</span> <span>{goals.away}</span>
+                      </h2>
+                      <div>
+                        {fixture.status.short === '1H' ||
+                        fixture.status.short === '2H' ? (
+                          <h3 className={`${active}`}>
+                            {fixture.status.elapsed}
+                          </h3>
+                        ) : (
+                          <h3>{fixture.status.short}</h3>
+                        )}
+                      </div>
+                    </div>
+                  ) : (
+                    <h3>vs</h3>
+                  )}
                   {/* away team */}
                   <div className='info-team-box'>
                     <div className='info-team-logo'>
