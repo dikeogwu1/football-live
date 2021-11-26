@@ -21,7 +21,7 @@
 
 .l-live {
   color: var(--clr-green-dark);
-  text-shadow: 2px 2px 0px var(--clr-green-light);
+  text-shadow: 0px 2px 2px #fff;
 }
 
 .logo-tittle {

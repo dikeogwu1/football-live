@@ -18,8 +18,7 @@ const StatsItem = () => {
         params: { id: id },
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
-          'x-rapidapi-key':
-            'cad7c7031emsh798561616d11f58p16bfb4jsn77d0d197d02c',
+          'x-rapidapi-key': process.env.REACT_APP_FOOTBALL_LOCK,
         },
       })
 
@@ -121,12 +120,6 @@ const StatsItem = () => {
               active = 'not-live'
             }
 
-            if (
-              single.fixture.status.short === '1H' ||
-              single.fixture.status.short === '2H'
-            ) {
-              single.fixture.status.short = single.fixture.status.elapsed
-            }
             const { goals, score, teams, fixture, events, statistics } = single
             const homeStats = statistics[0]
             const awayStats = statistics[1]
@@ -142,13 +135,24 @@ const StatsItem = () => {
                     <h4>{teams.home.name}</h4>
                   </div>
                   {/* scores */}
-                  {goals.away || goals.home ? (
+                  {fixture.status.short === '1H' ||
+                  fixture.status.short === '2H' ||
+                  fixture.status.short === 'FT' ? (
                     <div className='info-team-box'>
                       <h2 className='score-info'>
                         <span>{goals.home} </span>
                         <span>-</span> <span>{goals.away}</span>
                       </h2>
-                      <h3 className={`${active}`}>{fixture.status.short}</h3>
+                      <div>
+                        {fixture.status.short === '1H' ||
+                        fixture.status.short === '2H' ? (
+                          <h3 className={`${active}`}>
+                            {fixture.status.elapsed}
+                          </h3>
+                        ) : (
+                          <h3>{fixture.status.short}</h3>
+                        )}
+                      </div>
                     </div>
                   ) : (
                     <h3>vs</h3>
@@ -168,7 +172,7 @@ const StatsItem = () => {
                     {/* home */}
                     <div className='stats-info'>
                       {(statistics.length > 0
-                        ? awayStats.statistics
+                        ? homeStats.statistics
                         : noValue
                       ).map((item, index) => {
                         return (

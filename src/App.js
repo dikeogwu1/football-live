@@ -6,6 +6,7 @@ import Live from './Pages/Live'
 import Days from './Pages/Days'
 import Info from './Pages/Info'
 import Statistics from './Pages/Statistics'
+import Error from './Pages/Error'
 
 const App = () => {
   return (
@@ -23,6 +24,8 @@ const App = () => {
         <Route path='/info/:id' element={<Info />} />
         {/* statistics page */}
         <Route path='/stats/:id' element={<Statistics />} />
+        {/* error page */}
+        <Route path='/stats/:id' element={<Error />} />
       </Routes>
     </Router>
   )

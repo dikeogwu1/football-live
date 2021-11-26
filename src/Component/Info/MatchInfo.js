@@ -18,8 +18,7 @@ const MatchInfo = () => {
         params: { id: id },
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
-          'x-rapidapi-key':
-            'cad7c7031emsh798561616d11f58p16bfb4jsn77d0d197d02c',
+          'x-rapidapi-key': process.env.REACT_APP_FOOTBALL_LOCK,
         },
       })
 
@@ -122,7 +121,6 @@ const MatchInfo = () => {
             ) {
               active = 'not-live'
             }
-
             const { goals, score, teams, fixture, events } = single
             return (
               <div className='info-item-parent' key={index}>
@@ -138,6 +136,8 @@ const MatchInfo = () => {
                   {/* scores */}
                   {fixture.status.short === '1H' ||
                   fixture.status.short === '2H' ||
+                  fixture.status.short === 'HT' ||
+                  fixture.status.short === 'ET' ||
                   fixture.status.short === 'FT' ? (
                     <div className='info-team-box'>
                       <h2 className='score-info'>
