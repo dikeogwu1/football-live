@@ -32,7 +32,7 @@ const Home = () => {
         setMatch(items.data.response)
       } else if (items.data.response.length > 0 && search) {
         const fill = items.data.response.filter((all) => {
-          return all.league.country === search || all.league.name === search
+          return all.league.country.includes(search)  || all.league.name.includes(search)
         })
         setMatch(fill)
       } else {
