@@ -138,6 +138,10 @@
   color: var(--main-primary-color-11);
 }
 
+.nav-color {
+  color: #e13;
+}
+
 .calendar {
   font-size: 2rem;
   cursor: pointer;

@@ -66,7 +66,7 @@ const NavBar = () => {
     const rem = value.slice(1, value.length)
     let firstLetter = value.charAt(0).toUpperCase()
     const newValue = firstLetter + rem
-    setSearch(newValue)
+    setSearch(newValue.trim())
   }
 
   return (
@@ -115,7 +115,7 @@ const NavBar = () => {
           <button>Live</button>
         </Link>
         {/* two days ago */}
-        <div className='match-day'>
+        <div className='match-day '>
           {getPastDays(2).map((day, index) => {
             const { w, d, m } = day
             return (
@@ -124,7 +124,7 @@ const NavBar = () => {
                   months.indexOf(m) + 1
                 }-${d}`}
                 key={index}
-                className='match-day-link'
+                className='match-day-link two-d'
               >
                 <h4>{w}</h4>
                 <h4>
@@ -144,7 +144,7 @@ const NavBar = () => {
                   months.indexOf(m) + 1
                 }-${d}`}
                 key={index}
-                className='match-day-link'
+                className='match-day-link one-d'
               >
                 <h4>{w}</h4>
                 <h4>
