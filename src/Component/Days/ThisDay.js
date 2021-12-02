@@ -32,7 +32,10 @@ const ThisDay = () => {
       } else if (items.data.response.length > 0 && search) {
         setLoading(false)
         const clear = items.data.response.filter((all) => {
-          return all.league.country.includes(search)  || all.league.name.includes(search)
+          return (
+            all.league.country.includes(search) ||
+            all.league.name.includes(search)
+          )
         })
         setMatch(clear)
       } else {

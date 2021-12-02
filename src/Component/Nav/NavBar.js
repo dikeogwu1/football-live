@@ -122,7 +122,7 @@ const NavBar = () => {
               <Link
                 to={`/days/${new Date().getFullYear()}-${
                   months.indexOf(m) + 1
-                }-${d}`}
+                }-${d > 9 ? d : '0' + d}`}
                 key={index}
                 className='match-day-link two-d'
               >
@@ -142,7 +142,7 @@ const NavBar = () => {
               <Link
                 to={`/days/${new Date().getFullYear()}-${
                   months.indexOf(m) + 1
-                }-${d}`}
+                }-${d > 9 ? d : '0' + d}`}
                 key={index}
                 className='match-day-link one-d'
               >
@@ -163,7 +163,8 @@ const NavBar = () => {
               <Link to='/' key={index} className='match-day-link'>
                 <h4>today</h4>
                 <h4>
-                  <span>{d}</span> <span>{m}</span>
+                  <span>{d}</span>
+                  <br /> <span>{m}</span>
                 </h4>
               </Link>
             )
@@ -178,7 +179,7 @@ const NavBar = () => {
               <Link
                 to={`/days/${new Date().getFullYear()}-${
                   months.indexOf(m) + 1
-                }-${d}`}
+                }-${d > 9 ? d : '0' + d}`}
                 key={index}
                 className='match-day-link'
               >
@@ -199,7 +200,7 @@ const NavBar = () => {
               <Link
                 to={`/days/${new Date().getFullYear()}-${
                   months.indexOf(m) + 1
-                }-${d}`}
+                }-${d > 9 ? d : '0' + d}`}
                 key={index}
                 className='match-day-link'
               >

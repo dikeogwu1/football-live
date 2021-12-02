@@ -49,6 +49,11 @@
   padding-left: 1rem;
   border-radius: 20px;
   box-shadow: var(--light-shadow);
+  transition: var(--transition);
+}
+
+.single-match:hover {
+  background: #e13;
 }
 
 .live {

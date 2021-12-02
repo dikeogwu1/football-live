@@ -18,9 +18,11 @@ const Home = () => {
         method: 'GET',
         url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
         params: {
-          date: `${new Date().getFullYear()}-${
-            new Date().getMonth() + 1
-          }-${new Date().getDate()}`,
+          date: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${
+            new Date().getDate() > 9
+              ? new Date().getDate()
+              : '0' + new Date().getDate()
+          }`,
         },
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
@@ -32,7 +34,10 @@ const Home = () => {
         setMatch(items.data.response)
       } else if (items.data.response.length > 0 && search) {
         const fill = items.data.response.filter((all) => {
-          return all.league.country.includes(search)  || all.league.name.includes(search)
+          return (
+            all.league.country.includes(search) ||
+            all.league.name.includes(search)
+          )
         })
         setMatch(fill)
       } else {

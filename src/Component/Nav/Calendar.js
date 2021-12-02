@@ -14,7 +14,7 @@ const Calendar = () => {
           <Link
             to={`/days/${new Date().getFullYear()}-${
               new Date().getMonth() + 1
-            }-${date}`}
+            }-${date > 9 ? date : '0' + date}`}
             key={index}
             className='cal-links'
           >
