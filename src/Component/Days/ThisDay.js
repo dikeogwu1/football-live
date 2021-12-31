@@ -92,6 +92,8 @@ const ThisDay = () => {
             if (
               single.fixture.status.short === 'FT' ||
               single.fixture.status.short === 'PST' ||
+              single.fixture.status.short === 'AET' ||
+              single.fixture.status.short === 'TBD' ||
               single.fixture.status.long === 'Not Started' ||
               single.fixture.status.short === 'CANC'
             ) {

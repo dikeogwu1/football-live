@@ -65,12 +65,6 @@ const MatchInfo = () => {
             <Link to={`/stats/${id}`} className='info-link'>
               stats
             </Link>
-            <Link to='/'>
-              <h3 className='logo-tittle'>
-                <span className='l-football info-brand'>football</span>
-                <span className='l-live info-brand'>Live</span>
-              </h3>
-            </Link>
           </section>
         </div>
         <section>
@@ -98,12 +92,6 @@ const MatchInfo = () => {
           </div>
           <Link to={`/stats/${id}`} className='info-link'>
             stats
-          </Link>
-          <Link to='/'>
-            <h3 className='logo-tittle'>
-              <span className='l-football info-brand'>football</span>
-              <span className='l-live info-brand'>Live</span>
-            </h3>
           </Link>
         </section>
       </div>
