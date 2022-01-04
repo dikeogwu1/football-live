@@ -6,15 +6,26 @@ const dates = [
   23, 24, 25, 26, 27, 28,
 ]
 
+// dynamic month
+const getCorrectMonth = () => {
+  let correctMonth = new Date().getMonth()
+  if (correctMonth <= 9) {
+    correctMonth = correctMonth + 1
+    return '0' + correctMonth
+  } else {
+    return correctMonth + 1
+  }
+}
+
 const Calendar = () => {
   return (
     <article className='calendar-page'>
       {dates.map((date, index) => {
         return (
           <Link
-            to={`/days/${new Date().getFullYear()}-${
-              new Date().getMonth() + 1
-            }-${date > 9 ? date : '0' + date}`}
+            to={`/days/${new Date().getFullYear()}-${getCorrectMonth()}-${
+              date > 9 ? date : '0' + date
+            }`}
             key={index}
             className='cal-links'
           >

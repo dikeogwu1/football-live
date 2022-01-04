@@ -118,11 +118,15 @@ const NavBar = () => {
         <div className='match-day '>
           {getPastDays(2).map((day, index) => {
             const { w, d, m } = day
+            let dynamicMonth = months.indexOf(m) + 1
+            if (dynamicMonth <= 9) {
+              dynamicMonth = '0' + dynamicMonth
+            }
             return (
               <Link
-                to={`/days/${new Date().getFullYear()}-${
-                  months.indexOf(m) + 1
-                }-${d > 9 ? d : '0' + d}`}
+                to={`/days/${new Date().getFullYear()}-${dynamicMonth}-${
+                  d > 9 ? d : '0' + d
+                }`}
                 key={index}
                 className='match-day-link two-d'
               >
@@ -138,11 +142,15 @@ const NavBar = () => {
         <div className='match-day'>
           {getPastDays(1).map((day, index) => {
             const { w, d, m } = day
+            let dynamicMonth = months.indexOf(m) + 1
+            if (dynamicMonth <= 9) {
+              dynamicMonth = '0' + dynamicMonth
+            }
             return (
               <Link
-                to={`/days/${new Date().getFullYear()}-${
-                  months.indexOf(m) + 1
-                }-${d > 9 ? d : '0' + d}`}
+                to={`/days/${new Date().getFullYear()}-${dynamicMonth}-${
+                  d > 9 ? d : '0' + d
+                }`}
                 key={index}
                 className='match-day-link one-d'
               >
@@ -175,11 +183,15 @@ const NavBar = () => {
         <div className='match-day'>
           {getDays(1).map((day, index) => {
             const { w, d, m } = day
+            let dynamicMonth = months.indexOf(m) + 1
+            if (dynamicMonth <= 9) {
+              dynamicMonth = '0' + dynamicMonth
+            }
             return (
               <Link
-                to={`/days/${new Date().getFullYear()}-${
-                  months.indexOf(m) + 1
-                }-${d > 9 ? d : '0' + d}`}
+                to={`/days/${new Date().getFullYear()}-${dynamicMonth}-${
+                  d > 9 ? d : '0' + d
+                }`}
                 key={index}
                 className='match-day-link'
               >
@@ -196,11 +208,15 @@ const NavBar = () => {
         <div className='match-day'>
           {getDays(2).map((day, index) => {
             const { w, d, m } = day
+            let dynamicMonth = months.indexOf(m) + 1
+            if (dynamicMonth <= 9) {
+              dynamicMonth = '0' + dynamicMonth
+            }
             return (
               <Link
-                to={`/days/${new Date().getFullYear()}-${
-                  months.indexOf(m) + 1
-                }-${d > 9 ? d : '0' + d}`}
+                to={`/days/${new Date().getFullYear()}-${dynamicMonth}-${
+                  d > 9 ? d : '0' + d
+                }`}
                 key={index}
                 className='match-day-link'
               >

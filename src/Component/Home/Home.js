@@ -12,13 +12,22 @@ const Home = () => {
   const [arrow, setArrow] = useState(false)
   const { search, setSearch } = useGlobalContext()
 
+  const getCorrectMonth = () => {
+    let correctMonth = new Date().getMonth()
+    if (correctMonth <= 9) {
+      correctMonth = correctMonth + 1
+      return '0' + correctMonth
+    } else {
+      return correctMonth + 1
+    }
+  }
   const getToday = async () => {
     try {
       const items = await axios({
         method: 'GET',
         url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
         params: {
-          date: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${
+          date: `${new Date().getFullYear()}-${getCorrectMonth()}-${
             new Date().getDate() > 9
               ? new Date().getDate()
               : '0' + new Date().getDate()
